@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------
+   UPBRIGHT Design Tokens
+   Palette sampled directly from the UPBRIGHT logomark: a green
+   that runs bright at the top of the icon to a deep forest
+   green at the base. That exact gradient is the single
+   signature device — used sparingly as a stripe/edge, never
+   as a big hero fill.
+--------------------------------------------------------- */
+:root {
+  --ub-brand-950: #072317;
+  --ub-brand-900: #0b331f;
+  --ub-brand-800: #0e5a2c;
+  --ub-brand-700: #0e7a3b;
+  --ub-brand-100: #e1f7e9;
+
+  --ub-accent-500: #1fcb5c;
+  --ub-accent-600: #10b34c;
+  --ub-accent-700: #0a9944;
+
+  --ub-ink: #101615;
+  --ub-slate-600: #5b6470;
+  --ub-slate-400: #8891a0;
+  --ub-line: #e2e8e3;
+  --ub-paper: #f7faf8;
+  --ub-white: #ffffff;
+  --ub-success: #10b34c;
+
+  --ub-gradient: linear-gradient(135deg, var(--ub-accent-500) 0%, var(--ub-accent-600) 45%, var(--ub-brand-800) 100%);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+@theme inline {
+  --color-brand-950: var(--ub-brand-950);
+  --color-brand-900: var(--ub-brand-900);
+  --color-brand-800: var(--ub-brand-800);
+  --color-brand-700: var(--ub-brand-700);
+  --color-brand-100: var(--ub-brand-100);
+  --color-accent-500: var(--ub-accent-500);
+  --color-accent-600: var(--ub-accent-600);
+  --color-accent-700: var(--ub-accent-700);
+  --color-ink: var(--ub-ink);
+  --color-slate-600: var(--ub-slate-600);
+  --color-slate-400: var(--ub-slate-400);
+  --color-line: var(--ub-line);
+  --color-paper: var(--ub-paper);
+  --color-success: var(--ub-success);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ub-paper);
+  color: var(--ub-ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-id {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.04em;
+}
+
+.ub-gradient-bg {
+  background: var(--ub-gradient);
+}
+
+.ub-gradient-text {
+  background: var(--ub-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* signature stripe used under the navbar and along card top edges */
+.ub-stripe {
+  height: 3px;
+  background: var(--ub-gradient);
+}
+
+/* focus visibility, kept consistent site-wide */
+:focus-visible {
+  outline: 2px solid var(--ub-accent-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* subtle card lift */
+.ub-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.ub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -12px rgba(11, 30, 63, 0.25);
+  border-color: var(--ub-brand-100);
+}
+
+/* dotted ID-badge perforation edge, used on the profile badge card */
+.ub-badge-notch {
+  position: relative;
+}
+.ub-badge-notch::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 20px;
+  background: var(--ub-brand-900);
+  border-radius: 0 0 10px 10px;
+}
