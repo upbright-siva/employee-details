@@ -123,7 +123,7 @@ export const EMPLOYEES: Employee[] = [
     department: "UA",
     role: "Upbright Advisor",
     email: "afrahms2002@gmail.com",
-    phone: "+94 75 201 5303",
+    phone: "+94 70 453 7711",
     location: "UPBRIGHT PVT LTD",
     joiningDate: "2025-02-08",
     employmentType: "Full-time",

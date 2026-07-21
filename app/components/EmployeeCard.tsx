@@ -11,9 +11,9 @@ interface EmployeeCardProps {
   employee: Employee;
 }
 
-export default function EmployeeCard({ employee }: EmployeeCardProps) {  
+export default function EmployeeCard({ employee }: EmployeeCardProps) {
   const [downloading, setDownloading] = useState(false);
-  
+
   async function handleDownloadQr(e: React.MouseEvent) {
     // The button sits inside the card's <Link> — stop it from also
     // navigating to the profile page.
@@ -26,6 +26,7 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
       await downloadEmployeeQr({
         url: `https://www.upbright.ai/employee/${employee.employeeId}`,
         employeeId: employee.employeeId,
+        fullName: employee.fullName,
       });
     } finally {
       setDownloading(false);
