@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import { Info } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -10,17 +11,11 @@ export default function Navbar() {
             <Logo />
           </Link>
           <div className="hidden items-center gap-8 sm:flex">
-            <Link
-              href="/"
-              className="text-sm font-medium text-ink transition-colors hover:text-accent-700"
-            >
-              Directory
-            </Link>
             <a
               href="#about"
-              className="text-sm font-medium text-ink transition-colors hover:text-accent-700"
+              className="text-sm font-medium text-ink transition-colors hover:text-accent-700 p-1 bg-green-100 rounded-lg"
             >
-              About UPBRIGHT
+              <Info className="w-5 h-5"/>
             </a>
           </div>
           <Link

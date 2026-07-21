@@ -81,12 +81,12 @@ export default async function EmployeeProfilePage({ params }: ProfilePageProps) 
 
         {/* Details column */}
         <div className="space-y-6">
-          <section className="rounded-xl border border-line bg-white p-6">
+          {/* <section className="rounded-xl border border-line bg-white p-6">
             <h2 className="font-display text-lg font-bold text-ink">About</h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               {employee.bio}
             </p>
-          </section>
+          </section> */}
 
           <section className="rounded-xl border border-line bg-white p-6">
             <h2 className="font-display text-lg font-bold text-ink">
@@ -127,15 +127,6 @@ export default async function EmployeeProfilePage({ params }: ProfilePageProps) 
               />
             </dl>
           </section>
-
-          {manager && (
-            <section className="rounded-xl border border-line bg-white p-6">
-              <h2 className="font-display text-lg font-bold text-ink">Reports to</h2>
-              <div className="mt-4 max-w-xs">
-                <EmployeeCard employee={manager} />
-              </div>
-            </section>
-          )}
         </div>
       </div>
     </main>

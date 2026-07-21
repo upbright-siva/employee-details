@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "ui-avatars.com",
         pathname: "/api/**",
       },
+      {
+        protocol: "https",
+        hostname: "ezycourse.b-cdn.net",
+        pathname: "/**",
+      },
     ],
   },
 };

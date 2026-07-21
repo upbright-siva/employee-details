@@ -14,8 +14,8 @@ export default function Footer() {
             </p>
           </div>
           <div className="text-sm text-slate-600">
-            <p>Human Resources · hr@upbright.com</p>
-            <p>Colombo, Sri Lanka</p>
+            <p>hr@upbright.ai</p>
+            <p>UPBRIGHT PVT LTD,</p>
           </div>
         </div>
         <div className="mt-8 flex flex-col gap-2 border-t border-line pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
