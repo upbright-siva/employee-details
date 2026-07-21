@@ -23,7 +23,6 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
 
     setDownloading(true);
     try {
-      const origin = typeof window !== "undefined" ? window.location.origin : "";
       await downloadEmployeeQr({
         url: `https://www.upbright.ai/employee/${employee.employeeId}`,
         employeeId: employee.employeeId,
@@ -35,7 +34,7 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
 
   return (
     <Link
-      href={`/${employee.employeeId}`}
+      href={`https://www.upbright.ai/employee/${employee.employeeId}`}
       className="ub-card group relative flex flex-col overflow-hidden rounded-xl border border-line bg-white focus-visible:outline-offset-4"
     >
       <div className="ub-stripe" />
