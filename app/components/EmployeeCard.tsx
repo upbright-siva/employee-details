@@ -25,7 +25,7 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
     try {
       const origin = typeof window !== "undefined" ? window.location.origin : "";
       await downloadEmployeeQr({
-        url: `${origin}/${employee.employeeId}`,
+        url: `https://www.upbright.ai/employee/${employee.employeeId}`,
         employeeId: employee.employeeId,
       });
     } finally {

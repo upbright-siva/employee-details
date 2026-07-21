@@ -11,7 +11,7 @@ export function getSiteUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
-  return "https://www.upbright.ai/employee/";
+  return "https://www.upbright.ai/employee";
 }
 
 export const SITE_NAME = "UPBRIGHT Employee Directory";

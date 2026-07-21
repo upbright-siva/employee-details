@@ -68,7 +68,6 @@ export default async function EmployeeProfilePage({ params }: ProfilePageProps) 
     notFound();
   }
 
-  const manager = getManager(employee);
   const profileUrl = `${getSiteUrl()}/${employee.employeeId}`;
 
   return (
@@ -93,9 +92,9 @@ export default async function EmployeeProfilePage({ params }: ProfilePageProps) 
               Employment details
             </h2>
             <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
+              <InfoField icon={ShieldCheck} label="Employee Id" value={employee.employeeId} />
               <InfoField icon={Briefcase} label="Job title" value={employee.jobTitle} />
               <InfoField icon={Building2} label="Department" value={employee.department} />
-              <InfoField icon={ShieldCheck} label="Role" value={employee.role} />
               <InfoField
                 icon={Users}
                 label="Employment type"

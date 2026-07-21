@@ -118,7 +118,7 @@ export const EMPLOYEES: Employee[] = [
   },
   {
     employeeId: "006",
-    fullName: "Sathikeenn Fathima Afra",
+    fullName: "Sathikeen Fathima Afra",
     jobTitle: "Upbright Advisor",
     department: "UA",
     role: "Upbright Advisor",
