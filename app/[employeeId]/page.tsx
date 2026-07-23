@@ -17,11 +17,16 @@ import { getSiteUrl } from "../lib/site";
 import EmployeeBadge from "../components/EmployeeBadge";
 import InfoField from "../components/InfoField";
 import { formatDate } from "../lib/utils";
-import EmployeeCard from "../components/EmployeeCard";
 
 interface ProfilePageProps {
   params: Promise<{ employeeId: string }>;
 }
+
+// Official UPBRIGHT contact channels — not tied to any individual employee.
+// TODO: replace with your real company phone/email (or import from lib/site.ts
+// if you keep company-wide config there).
+const COMPANY_PHONE = "+94 (074) 242 7711";
+const COMPANY_EMAIL = "hr@upbright.ai";
 
 // Pre-render a static page for every known employee ID at build time —
 // this is what lets the directory scale to hundreds or thousands of
@@ -92,7 +97,6 @@ export default async function EmployeeProfilePage({ params }: ProfilePageProps) 
               Employment details
             </h2>
             <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
-              <InfoField icon={ShieldCheck} label="Employee Id" value={employee.employeeId} />
               <InfoField icon={Briefcase} label="Job title" value={employee.jobTitle} />
               <InfoField icon={Building2} label="Department" value={employee.department} />
               <InfoField
@@ -106,25 +110,59 @@ export default async function EmployeeProfilePage({ params }: ProfilePageProps) 
                 value={formatDate(employee.joiningDate)}
               />
               <InfoField icon={MapPin} label="Location" value={employee.location} />
-            </dl>
-          </section>
-
-          <section className="rounded-xl border border-line bg-white p-6">
-            <h2 className="font-display text-lg font-bold text-ink">Contact</h2>
-            <dl className="mt-4 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
               <InfoField
                 icon={Mail}
                 label="Email"
                 value={employee.email}
                 href={`mailto:${employee.email}`}
               />
-              <InfoField
-                icon={Phone}
-                label="Phone"
-                value={employee.phone}
-                href={`tel:${employee.phone.replace(/\s+/g, "")}`}
-              />
             </dl>
+          </section>
+
+          <section className="overflow-hidden rounded-xl border border-line bg-gradient-to-br from-ink to-slate-800 p-6 text-white">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-5 w-5 text-emerald-400" />
+              <h2 className="font-display text-lg font-bold">Company contact</h2>
+            </div>
+            <p className="mt-1 text-sm text-slate-300">
+              Official UPBRIGHT channels — not this employee&apos;s personal line.
+            </p>
+
+            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <a
+                href={`tel:${COMPANY_PHONE}`}
+                className="group flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-400/15">
+                  <Phone className="h-5 w-5 text-emerald-400" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs uppercase tracking-wide text-slate-400">
+                    Phone
+                  </span>
+                  <span className="block truncate text-sm font-medium">
+                    {COMPANY_PHONE}
+                  </span>
+                </span>
+              </a>
+
+              <a
+                href={`mailto:${COMPANY_EMAIL}`}
+                className="group flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-400/15">
+                  <Mail className="h-5 w-5 text-emerald-400" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs uppercase tracking-wide text-slate-400">
+                    Email
+                  </span>
+                  <span className="block truncate text-sm font-medium">
+                    {COMPANY_EMAIL}
+                  </span>
+                </span>
+              </a>
+            </div>
           </section>
         </div>
       </div>
