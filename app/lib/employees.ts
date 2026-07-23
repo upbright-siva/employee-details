@@ -20,6 +20,7 @@ export interface GetAllEmployeesOptions {
   department?: string;
 }
 
+/** Generate an initials-based avatar for anyone without a real photo on file. */
 function avatarFor(name: string): string {
   const initials = encodeURIComponent(name);
   return `https://ui-avatars.com/api/?name=${initials}&background=0B1E3F&color=FFB020&size=256&bold=true&font-size=0.36`;
@@ -32,8 +33,29 @@ export const DEPARTMENTS: string[] = [
   "Academic",
   "UA",
   "Human Resources",
-  "Management"
+  "Management",
 ];
+
+// ---------------------------------------------------------------------------
+// Employee photos.
+// Each employee's photo URL is read from an environment variable (see .env)
+// so it can be changed without touching this file. Leave the .env value
+// empty and it falls back to an auto-generated initials avatar
+// (see `image: IMG_X || avatarFor(...)` below).
+// ---------------------------------------------------------------------------
+const IMG_CEO = process.env.NEXT_PUBLIC_IMG_CEO ?? "";
+const IMG_CTO = process.env.NEXT_PUBLIC_IMG_CTO ?? "";
+const IMG_UA_HEAD = process.env.NEXT_PUBLIC_IMG_UA_HEAD ?? "";
+const IMG_ACADEMIC_ADMIN = process.env.NEXT_PUBLIC_IMG_ACADEMIC_ADMIN ?? "";
+const IMG_ADVISOR_SARANIYA = process.env.NEXT_PUBLIC_IMG_ADVISOR_SARANIYA ?? "";
+const IMG_ADVISOR_AFRA = process.env.NEXT_PUBLIC_IMG_ADVISOR_AFRA ?? "";
+const IMG_SOCIAL_MEDIA_FARHA = process.env.NEXT_PUBLIC_IMG_SOCIAL_MEDIA_FARHA ?? "";
+const IMG_ADVISOR_VITHUSHALINI = process.env.NEXT_PUBLIC_IMG_ADVISOR_VITHUSHALINI ?? "";
+const IMG_ADVISOR_ZAHEER = process.env.NEXT_PUBLIC_IMG_ADVISOR_ZAHEER ?? "";
+const IMG_SOCIAL_MEDIA_AFRITH = process.env.NEXT_PUBLIC_IMG_SOCIAL_MEDIA_AFRITH ?? "";
+const IMG_ACADEMIC_COORDINATOR = process.env.NEXT_PUBLIC_IMG_ACADEMIC_COORDINATOR ?? "";
+const IMG_ACCOUNTANT = process.env.NEXT_PUBLIC_IMG_ACCOUNTANT ?? "";
+const IMG_DEVELOPER = process.env.NEXT_PUBLIC_IMG_DEVELOPER ?? "";
 
 export const EMPLOYEES: Employee[] = [
   {
@@ -50,7 +72,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: null,
     status: "Active",
     bio: "Leads company strategy and long-term vision across all business units.",
-    image: "https://ezycourse.b-cdn.net/6126/cmrua2cnr585vluqqd230fxbn.jpeg",
+    image: IMG_CEO || avatarFor("Mohamed Faiz Mohamed Asfar"),
   },
   {
     employeeId: "002",
@@ -66,7 +88,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Oversees platform architecture and the engineering organization.",
-    image: avatarFor("Dinuka Wickramasinghe"),
+    image: IMG_CTO || avatarFor("Moahamed Zarook Mohamed Asaam"),
   },
   {
     employeeId: "003",
@@ -82,7 +104,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Leads the web platform team and owns the design system implementation.",
-    image: "https://ezycourse.b-cdn.net/6126/cmrubfma16szay1phetzlc83k.jpeg",
+    image: IMG_UA_HEAD || avatarFor("Nilawfer Mohamed Niflal"),
   },
   {
     employeeId: "004",
@@ -98,7 +120,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Builds and maintains core API services and internal tooling.",
-    image: avatarFor("Mohamed Salman"),
+    image: IMG_ACADEMIC_ADMIN || avatarFor("Mohamed Salman"),
   },
   {
     employeeId: "005",
@@ -114,7 +136,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Owns test automation and release quality across the product suite.",
-    image: avatarFor("Saraniya Kopalan"),
+    image: IMG_ADVISOR_SARANIYA || avatarFor("Saraniya Kopalan"),
   },
   {
     employeeId: "006",
@@ -130,7 +152,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Sets product strategy and roadmap priorities company-wide.",
-    image: "https://ezycourse.b-cdn.net/6126/cmrubdmyf6rpsy1ph71di17kq.jpg",
+    image: IMG_ADVISOR_AFRA || avatarFor("Sathikeen Fathima Afra"),
   },
   {
     employeeId: "007",
@@ -146,7 +168,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Manages the roadmap for the employee experience product line.",
-    image: avatarFor("Mohamed Muzammil Farha"),
+    image: IMG_SOCIAL_MEDIA_FARHA || avatarFor("Mohamed Muzammil Farha"),
   },
   {
     employeeId: "008",
@@ -162,7 +184,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Leads the design team and maintains the UPBRIGHT visual identity.",
-    image: avatarFor("Balachandran vithushalini"),
+    image: IMG_ADVISOR_VITHUSHALINI || avatarFor("Balachandran vithushalini"),
   },
   {
     employeeId: "009",
@@ -178,7 +200,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Designs interfaces for internal tools and customer-facing products.",
-    image: avatarFor("Abdul Kader Moahmmed Zaheer"),
+    image: IMG_ADVISOR_ZAHEER || avatarFor("Abdul Kader Moahmmed Zaheer"),
   },
   {
     employeeId: "010",
@@ -194,7 +216,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Runs brand, campaigns, and communications for UPBRIGHT.",
-    image: avatarFor("Jiffry Mohamed Afrith"),
+    image: IMG_SOCIAL_MEDIA_AFRITH || avatarFor("Jiffry Mohamed Afrith"),
   },
   {
     employeeId: "011",
@@ -210,7 +232,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Plans and writes content across web, social, and product marketing.",
-    image: "https://ezycourse.b-cdn.net/6126/cmru7duwt2r0exiph01ym666d.jpeg",
+    image: IMG_ACADEMIC_COORDINATOR || avatarFor("NAzeer Fathima Safna"),
   },
   {
     employeeId: "012",
@@ -226,7 +248,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Leads the sales organization and enterprise account strategy.",
-    image: "https://ezycourse.b-cdn.net/6126/cmru7e8zg2vipmuqqfxnlhzz3.jpeg",
+    image: IMG_ACCOUNTANT || avatarFor("Mohamed Jawfer Fayarusa"),
   },
   {
     employeeId: "013",
@@ -242,7 +264,7 @@ export const EMPLOYEES: Employee[] = [
     reportsTo: "",
     status: "Active",
     bio: "Leads the web platform team and owns the design system implementation.",
-    image: "https://ezycourse.b-cdn.net/6126/cmru7np9w33xqluqq77pacoal.png",
+    image: IMG_DEVELOPER || avatarFor("Sivakkanth Karunakaran"),
   },
 ];
 
