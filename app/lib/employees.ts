@@ -43,19 +43,19 @@ export const DEPARTMENTS: string[] = [
 // empty and it falls back to an auto-generated initials avatar
 // (see `image: IMG_X || avatarFor(...)` below).
 // ---------------------------------------------------------------------------
-const IMG_001 = process.env.NEXT_PUBLIC_IMG_CEO ?? "";
-const IMG_002 = process.env.NEXT_PUBLIC_IMG_CTO ?? "";
-const IMG_003 = process.env.NEXT_PUBLIC_IMG_UA_HEAD ?? "";
-const IMG_004 = process.env.NEXT_PUBLIC_IMG_ACADEMIC_ADMIN ?? "";
-const IMG_005 = process.env.NEXT_PUBLIC_IMG_ADVISOR_SARANIYA ?? "";
-const IMG_006 = process.env.NEXT_PUBLIC_IMG_ADVISOR_AFRA ?? "";
-const IMG_007 = process.env.NEXT_PUBLIC_IMG_SOCIAL_MEDIA_FARHA ?? "";
-const IMG_008 = process.env.NEXT_PUBLIC_IMG_ADVISOR_VITHUSHALINI ?? "";
-const IMG_009 = process.env.NEXT_PUBLIC_IMG_ADVISOR_ZAHEER ?? "";
-const IMG_010 = process.env.NEXT_PUBLIC_IMG_SOCIAL_MEDIA_AFRITH ?? "";
-const IMG_011 = process.env.NEXT_PUBLIC_IMG_ACADEMIC_COORDINATOR ?? "";
-const IMG_012 = process.env.NEXT_PUBLIC_IMG_ACCOUNTANT ?? "";
-const IMG_013 = process.env.NEXT_PUBLIC_IMG_DEVELOPER ?? "";
+const IMG_001 = process.env.NEXT_PUBLIC_IMG_001 ?? "";
+const IMG_002 = process.env.NEXT_PUBLIC_IMG_002 ?? "";
+const IMG_003 = process.env.NEXT_PUBLIC_IMG_003 ?? "";
+const IMG_004 = process.env.NEXT_PUBLIC_IMG_004 ?? "";
+const IMG_005 = process.env.NEXT_PUBLIC_IMG_005 ?? "";
+const IMG_006 = process.env.NEXT_PUBLIC_IMG_006 ?? "";
+const IMG_007 = process.env.NEXT_PUBLIC_IMG_007 ?? "";
+const IMG_008 = process.env.NEXT_PUBLIC_IMG_008 ?? "";
+const IMG_009 = process.env.NEXT_PUBLIC_IMG_009 ?? "";
+const IMG_010 = process.env.NEXT_PUBLIC_IMG_010 ?? "";
+const IMG_011 = process.env.NEXT_PUBLIC_IMG_011 ?? "";
+const IMG_012 = process.env.NEXT_PUBLIC_IMG_012 ?? "";
+const IMG_013 = process.env.NEXT_PUBLIC_IMG_013 ?? "";
 
 export const EMPLOYEES: Employee[] = [
   {
